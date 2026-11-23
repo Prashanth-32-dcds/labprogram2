@@ -1,0 +1,25 @@
+name: lab-program2-practice
+
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@V3
+
+      - name: Setup Python
+        uses: actions/setup-python@V4
+        with:
+          python-version: 3.15
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run ML Training script
+        run: |
+          python src/train_model.py
+      
+       
+  
